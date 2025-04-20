@@ -1,5 +1,5 @@
-import PageHeader from "../components/PageHeader";
-import Trend from "../components/Trend";
+import PageHeader from "@/components/PageHeader";
+import Trend from "@/components/Trend";
 
 const page = () => {
   return (
