@@ -6,8 +6,8 @@ const Trend = ({ type, amount, prevAmount }) => {
   const colorClasses = {
     Income: "text-green-700 dark:text-green-300",
     Expense: "text-red-700 dark:text-red-300",
-    Investment: "text-blue-700 dark:text-blue-300",
-    Savings: "text-yellow-700 dark:text-yellow-300",
+    Investment: "text-indigo-700 dark:text-indigo-300",
+    Saving: "text-yellow-700 dark:text-yellow-300",
   };
 
   const calcPercentageChange = (amount, prevAmount) => {
