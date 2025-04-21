@@ -1,5 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import TransactionItem from "@/components/TransactionItem";
+import TransactionSummary from "@/components/TransactionSummary";
 import Trend from "@/components/Trend";
 
 const page = () => {
@@ -14,6 +15,7 @@ const page = () => {
           <PageHeader />
         </div>
       </div>
+
       <div>
         <h2 className="mb-4 text-lg font-mono">Trend</h2>
         <hr className="mb-4 border-gray-200 dark:border-gray-800" />
@@ -27,6 +29,33 @@ const page = () => {
 
       <div>
         <h2 className="mb-4 text-lg font-mono">Transaction Item</h2>
+        <hr className="mb-4 border-gray-200 dark:border-gray-800" />
+        <div className="space-y-4">
+          <TransactionItem type="Income" description="Salary" amount={1000} />
+          <TransactionItem
+            type="Expense"
+            description="Groceries"
+            amount={200}
+          />
+          <TransactionItem
+            type="Investment"
+            description="Stocks"
+            amount={300}
+          />
+          <TransactionItem
+            type="Saving"
+            description="Emergency Fund"
+            amount={500}
+          />
+        </div>
+      </div>
+
+      <div>
+        <h2 className="mb-4 text-lg font-mono">
+          Transaction summary + Transaction Item
+        </h2>
+        <hr className="mb-4 border-gray-200 dark:border-gray-800" />
+        <TransactionSummary date="2025-01-01" amount={3500} />
         <hr className="mb-4 border-gray-200 dark:border-gray-800" />
         <div className="space-y-4">
           <TransactionItem type="Income" description="Salary" amount={1000} />
