@@ -1,11 +1,15 @@
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import Label from "@/components/Label";
 import PageHeader from "@/components/PageHeader";
+import Select from "@/components/Select";
 import TransactionItem from "@/components/TransactionItem";
 import TransactionSummary from "@/components/TransactionSummary";
 import Trend from "@/components/Trend";
 
 const page = () => {
   return (
-    <main className="space-y-8">
+    <main className="space-y-8 mb-44">
       <h1 className="text-4xl mt-8">Playground</h1>
 
       <div>
@@ -74,6 +78,43 @@ const page = () => {
             description="Emergency Fund"
             amount={500}
           />
+        </div>
+      </div>
+
+      <div>
+        <h2 className="mb-4 text-lg font-mono">Buttons</h2>
+        <hr className="mb-4 border-gray-200 dark:border-gray-800" />
+        <div className="space-y-4">
+          <Button>Hello</Button>
+          <Button variants="outline">Hello</Button>
+          <Button variants="ghost">Hello</Button>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="mb-4 text-lg font-mono">Forms</h2>
+        <hr className="mb-4 border-gray-200 dark:border-gray-800" />
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label className="mb-2">Your Name</Label>
+            <Input type="text" placeholder="Type your name..." />
+          </div>
+
+          <div>
+            <Label className="mb-2">City</Label>
+            <Select>
+              <option value="new-york">New York</option>
+              <option value="los-angeles">Los Angeles</option>
+              <option value="chicago">Chicago</option>
+              <option value="houston">Houston</option>
+              <option value="miami">Miami</option>
+            </Select>
+          </div>
+
+          <div className="flex items-center">
+            <Input type="checkbox" id="terms" />
+            <Label htmlFor="terms">Accept terms & conditions</Label>
+          </div>
         </div>
       </div>
     </main>
