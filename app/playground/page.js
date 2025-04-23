@@ -3,6 +3,7 @@ import Input from "@/components/Input";
 import Label from "@/components/Label";
 import PageHeader from "@/components/PageHeader";
 import Select from "@/components/Select";
+import Skeleton from "@/components/Skeleton";
 import TransactionItem from "@/components/TransactionItem";
 import TransactionSummary from "@/components/TransactionSummary";
 import Trend from "@/components/Trend";
@@ -114,6 +115,18 @@ const page = () => {
           <div className="flex items-center">
             <Input type="checkbox" id="terms" />
             <Label htmlFor="terms">Accept terms & conditions</Label>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="mb-4 text-lg font-mono">Forms</h2>
+        <hr className="mb-4 border-gray-200 dark:border-gray-800" />
+        <div className="space-y-8">
+          <div className="flex space-x-4">
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
           </div>
         </div>
       </div>

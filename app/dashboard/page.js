@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import TransactionList from "./components/TransactionList";
+import TransactionListFallback from "./components/TransactionListFallback";
 
 const DashBoardHomePage = () => {
   return (
     <div>
-      <TransactionList />
+      <Suspense fallback={<TransactionListFallback />}>
+        <TransactionList />
+      </Suspense>
     </div>
   );
 };
