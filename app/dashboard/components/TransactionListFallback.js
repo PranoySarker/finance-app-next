@@ -3,7 +3,7 @@ import React from "react";
 
 const TransactionListFallback = () => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-10">
       <TransactionItemSkeleton />
       <TransactionItemSkeleton />
       <TransactionItemSkeleton />
