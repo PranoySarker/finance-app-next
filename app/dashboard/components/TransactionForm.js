@@ -13,7 +13,7 @@ const TransactionForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onTouched" });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -42,17 +42,43 @@ const TransactionForm = () => {
 
         <div>
           <Label className="mb-1">Transaction Date</Label>
-          <Input {...register("created_at")} />
+          <Input
+            {...register("created_at", { required: "The date is required" })}
+          />
+          {errors.created_at && (
+            <span className="mt-1 text-red-500">
+              {errors.created_at.message} 🚫
+            </span>
+          )}
         </div>
 
         <div>
           <Label className="mb-1">Amount</Label>
-          <Input type="number" {...register("amount")} />
+          <Input
+            type="number"
+            {...register("amount", {
+              required: "Amount is required",
+              valueAsNumber: true,
+              min: { value: 1, message: "Amount must be at least 1" },
+            })}
+          />
+          {errors.amount && (
+            <span className="mt-1 text-red-500">
+              {errors.amount.message} 🚫
+            </span>
+          )}
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-1 md:col-span-2">
           <Label className="mb-1">Description</Label>
-          <Input {...register("description")} />
+          <Input
+            {...register("description", { required: "Descrption is required" })}
+          />
+          {errors.description && (
+            <span className="mt-1 text-red-500">
+              {errors.description.message} 🚫
+            </span>
+          )}
         </div>
       </div>
 
