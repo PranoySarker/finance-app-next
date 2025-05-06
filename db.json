@@ -87,9 +87,16 @@
       "description": "Salary",
       "created_at": "2024-01-23T00:00:00",
       "id": 11
+    },
+    {
+      "type": "Expense",
+      "category": "Health",
+      "amount": 300,
+      "description": "this is the transaction of transaction cost",
+      "created_at": "12/04/2025T00:00:00.000",
+      "id": 12
     }
   ],
-
   "trends": [
     {
       "id": "Income",

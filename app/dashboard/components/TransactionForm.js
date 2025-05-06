@@ -5,7 +5,7 @@ import Input from "@/components/Input";
 import Label from "@/components/Label";
 import Select from "@/components/Select";
 import { categories, types } from "@/lib/constants";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { transactionShema } from "@/lib/validation";
@@ -17,8 +17,24 @@ const TransactionForm = () => {
     formState: { errors },
   } = useForm({ mode: "onTouched", resolver: zodResolver(transactionShema) });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [saving, setSaving] = useState(false);
+
+  const onSubmit = async (data) => {
+    setSaving(true);
+    try {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/transactions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          created_at: `${data.created_at}T00:00:00.000`,
+        }),
+      });
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -74,7 +90,9 @@ const TransactionForm = () => {
       </div>
 
       <div className="flex justify-end mt-4">
-        <Button type="submit">Save</Button>
+        <Button type="submit" disabled={saving}>
+          Save
+        </Button>
       </div>
     </form>
   );
