@@ -7,13 +7,15 @@ import Select from "@/components/Select";
 import { categories, types } from "@/lib/constants";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { transactionShema } from "@/lib/validation";
 
 const TransactionForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onTouched" });
+  } = useForm({ mode: "onTouched", resolver: zodResolver(transactionShema) });
 
   const onSubmit = (data) => {
     console.log(data);
