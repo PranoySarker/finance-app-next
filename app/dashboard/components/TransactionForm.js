@@ -42,9 +42,7 @@ const TransactionForm = () => {
 
         <div>
           <Label className="mb-1">Transaction Date</Label>
-          <Input
-            {...register("created_at", { required: "The date is required" })}
-          />
+          <Input {...register("created_at")} />
           {errors.created_at && (
             <span className="mt-1 text-red-500">
               {errors.created_at.message} 🚫
@@ -54,14 +52,7 @@ const TransactionForm = () => {
 
         <div>
           <Label className="mb-1">Amount</Label>
-          <Input
-            type="number"
-            {...register("amount", {
-              required: "Amount is required",
-              valueAsNumber: true,
-              min: { value: 1, message: "Amount must be at least 1" },
-            })}
-          />
+          <Input type="number" {...register("amount")} />
           {errors.amount && (
             <span className="mt-1 text-red-500">
               {errors.amount.message} 🚫
@@ -71,9 +62,7 @@ const TransactionForm = () => {
 
         <div className="col-span-1 md:col-span-2">
           <Label className="mb-1">Description</Label>
-          <Input
-            {...register("description", { required: "Descrption is required" })}
-          />
+          <Input {...register("description")} />
           {errors.description && (
             <span className="mt-1 text-red-500">
               {errors.description.message} 🚫
