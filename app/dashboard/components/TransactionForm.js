@@ -9,6 +9,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { transactionShema } from "@/lib/validation";
+import { useRouter } from "next/navigation";
+import { purgeTransationListCache } from "@/lib/actions";
 
 const TransactionForm = () => {
   const {
@@ -16,6 +18,8 @@ const TransactionForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onTouched", resolver: zodResolver(transactionShema) });
+
+  const router = useRouter();
 
   const [saving, setSaving] = useState(false);
 
@@ -32,6 +36,9 @@ const TransactionForm = () => {
           created_at: `${data.created_at}T00:00:00.000`,
         }),
       });
+
+      await purgeTransationListCache();
+      router.push("/dashboard");
     } finally {
       setSaving(false);
     }
