@@ -5,8 +5,11 @@ import TrendDashboad from "./components/TrendDashboad";
 import TrendFallback from "./components/TrendFallback";
 import Link from "next/link";
 import { PlusCircle } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
 
-const DashBoardHomePage = () => {
+const DashBoardHomePage = async () => {
+  const client = await createClient();
+  console.log(await client.from("transactions").select());
   return (
     <>
       <section className="mb-8">
